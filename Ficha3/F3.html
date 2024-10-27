@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Titulo da página-->
+    <title>DSOS - Ficha 3</title>
+    <!--Ligação ao ficheiro css & javascript-->
+    <link rel="stylesheet" type="text/css" href="F3.css" />
+    <script src="F3.js" defer></script>
+
+</head>
+<body>
+
+        <!-- Cria um menu com links -->
+    <nav class="menu">
+        <ul>
+            <li><a href="F3.html">Início</a></li>
+            <li><a href="Sobre.html">Sobre</a></li>
+            <li><a href="Contacto.html">Contato</a></li>
+            <li><a href="#">Serviços</a></li>
+        </ul>
+    </nav>
+
+    <h1>Explorando Funcionalidades do Javascript</h1>
+
+    <!-- Botão para caixa de alerta -->
+    <button onclick="showAlert()">Clique para ver o alerta</button>
+
+    <br><br>
+
+    <!-- Eventos mouseover e mouseout com imagens -->
+    <h3>Passe o rato sobre as imagens</h3>
+    <!-- Imagem 1 -->
+    <img src="/imagens/html5-1.png" alt="Imagem 1" onmouseover="changeImage(this, '/imagens/html5-2.png')" onmouseout="resetImage(this, '/imagens/html5-1.png')">
+
+    <!-- Imagem 2 -->
+    <img src="/imagens/css-1.png" alt="Imagem 2" onmouseover="changeImage(this, '/imagens/css-2.png')" onmouseout="resetImage(this, '/imagens/css-1.png')">
+
+    <!-- Imagem 3 -->
+    <img src="/imagens/js-1.png" alt="Imagem 3" onmouseover="changeImage(this, '/imagens/js-2.png')" onmouseout="resetImage(this, '/imagens/js-1.png')">
+
+
+    <br><br>
+
+    <!-- Texto que exibe mais detalhes ao clicar -->
+    <h3 onclick="showDetails()">Clique aqui para mais detalhes</h3>
+    <div id="details">
+        <p>Espinho é uma cidade encantadora em Portugal, famosa pelas suas praias, gastronomia marítima e festividades tradicionais como o São João. Um ótimo destino para relaxar e explorar a cultura local!</p>
+    </div>
+
+    <br><br>
+    <!--Div a ser substituida após passagem do mouse-->
+    <div id="divReplace">Passe o mouse aqui!</div>
+
+
+</body>
+</html>

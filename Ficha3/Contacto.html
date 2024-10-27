@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <script src="Contacto.js" defer></script>
+
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+        /* Estilo para o formulário */
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        /* Estilo para os campos de texto */
+        input[type="text"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        /* Estilo para o botão de envio */
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        /* Estilo para o botão de envio ao passar o mouse */
+        input[type="submit"]:hover {
+            background-color: orangered;
+        }
+        
+        /* Estilo para as mensagens de erro */
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+
+        /* Define os estilos para o menu */
+        .menu {
+            background-color: #f4f4f4;  /* Define a cor de fundo do menu como cinza claro */
+            padding: 5px;  /* Reduz o preenchimento para 5 pixels em todas as direções */
+            border: 1px solid #ccc;  /* Define uma borda de 1 pixel sólida com cor cinza claro */
+            cursor: pointer;  /* Muda o cursor para uma mão ao passar o mouse sobre o menu */
+            transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;  /* Adiciona uma transição suave para as propriedades */
+            width: 500px;  /* Define uma largura fixa para o menu */
+            margin: 0 auto;  /* Alinha o menu ao centro */
+            text-align: center;  /* Alinha o texto ao centro */
+        }
+
+        .menu ul {  /* Estilos para a lista dentro do menu */
+            list-style-type: none;  /* Remove os marcadores da lista */
+            padding: 0;  /* Remove o preenchimento da lista */
+            margin: 0;  /* Remove a margem da lista */
+        }
+
+        .menu ul li {  /* Estilos para os itens da lista */
+            display: inline-block;  /* Exibe os itens da lista em bloco em linha */
+            margin-right: 10px;  /* Adiciona um espaço entre os itens */
+            vertical-align: middle;  /* Alinha os itens verticalmente ao meio */
+            color: #333;
+        }
+
+        .menu ul li a {  /* Seleciona todos os links dentro dos itens da lista no menu */
+            color: #333;  /* Define a cor do texto dos links como um tom escuro de cinza */
+            text-decoration: none;  /* Remove o sublinhado padrão dos links */
+        }
+
+        .menu ul li a:hover {  /* Seleciona os links dentro dos itens da lista quando o mouse está sobre eles */
+            color: orangered;  /* Muda a cor do texto para um tom laranja avermelhado quando o mouse está sobre o link */
+            text-decoration: none;  /* Garante que o sublinhado não apareça mesmo quando o mouse está sobre o link */
+        }
+
+        .menu ul li a:active {  /* Seleciona os links dentro dos itens da lista quando estão sendo clicados */
+            color: blue;  /* Muda a cor do texto para azul enquanto o link está sendo clicado */
+        }
+
+        .menu:hover {  /* Define os estilos para o menu quando o mouse está sobre ele */
+            background-color: #e0e0e0;  /* Muda a cor de fundo para um cinza mais escuro */
+            color: #333;  /* Muda a cor do texto para um tom mais escuro */
+            border: 1px solid #666;  /* Muda a borda para uma cor cinza mais escura */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do menu */
+        }
+
+        .menu ul li:hover {  /* Define os estilos para os itens da lista quando o mouse está sobre eles */
+            background-color: #d0d0d0;  /* Muda a cor de fundo para um cinza mais escuro */
+            color: #333;  /* Muda a cor do texto para um tom mais escuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do item da lista */
+        }
+    </style>
+</head>
+<body>
+
+          <!-- Cria um menu com links -->
+          <nav class="menu">
+            <ul>
+                <li><a href="F3.html">Início</a></li>
+                <li><a href="Sobre.html">Sobre</a></li>
+                <li><a href="Contacto.html">Contato</a></li>
+                <li><a href="#">Serviços</a></li>
+            </ul>
+        </nav>
+    
+
+<h2>Formulário de Contato</h2>
+<form id="contactForm" onsubmit="return validateForm()">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
+    <span class="error" id="nameError"></span>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+    <span class="error" id="emailError"></span>
+
+    <label for="phone">Número de Telemóvel:</label>
+    <input type="text" id="phone" name="phone" required pattern="\d{9}" maxlength="9">
+    <span class="error" id="phoneError"></span>
+
+    <input type="submit" value="Enviar">
+</form>
+
+
+
+</body>
+</html>

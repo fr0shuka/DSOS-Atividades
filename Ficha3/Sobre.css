@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;/* Especifica a família de fontes a ser usada (Arial e, se não estiver disponível, qualquer fonte sans-serif) */
+    margin: 20px;/* Adiciona uma margem de 20 pixels em todas as direções do corpo da página */    
+}
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .container {
+    display: inline-block;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+ 
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width:80%;
+    margin: 0% 10% 0 10%;
+  }
+
+  footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    
+  }
+
+  img{
+    width: 50%;
+    height: 50%;
+}
+
+  .row{
+    display: flex;
+    margin: 0 20% 0 20%;
+    height: 500px;
+
+  }
+
+  .col-md-4{
+    border: 2px solid rgb(184, 184, 184);
+    margin: .5%;
+    padding: 5px;
+
+  }
+
+  /* Define os estilos para o menu */
+.menu {
+    background-color: #f4f4f4;  /* Define a cor de fundo do menu como cinza claro */
+    padding: 5px;  /* Reduz o preenchimento para 5 pixels em todas as direções */
+    border: 1px solid #ccc;  /* Define uma borda de 1 pixel sólida com cor cinza claro */
+    cursor: pointer;  /* Muda o cursor para uma mão ao passar o mouse sobre o menu */
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;  /* Adiciona uma transição suave para as propriedades */
+    width: 500px;  /* Define uma largura fixa para o menu */
+    margin: 0 auto;  /* Alinha o menu ao centro */
+    text-align: center;  /* Alinha o texto ao centro */
+}
+
+.menu ul {  /* Estilos para a lista dentro do menu */
+    list-style-type: none;  /* Remove os marcadores da lista */
+    padding: 0;  /* Remove o preenchimento da lista */
+    margin: 0;  /* Remove a margem da lista */
+}
+
+.menu ul li {  /* Estilos para os itens da lista */
+    display: inline-block;  /* Exibe os itens da lista em bloco em linha */
+    margin-right: 10px;  /* Adiciona um espaço entre os itens */
+    vertical-align: middle;  /* Alinha os itens verticalmente ao meio */
+    color: #333;
+}
+
+.menu ul li a {  /* Seleciona todos os links dentro dos itens da lista no menu */
+    color: #333;  /* Define a cor do texto dos links como um tom escuro de cinza */
+    text-decoration: none;  /* Remove o sublinhado padrão dos links */
+}
+
+.menu ul li a:hover {  /* Seleciona os links dentro dos itens da lista quando o mouse está sobre eles */
+    color: orangered;  /* Muda a cor do texto para um tom laranja avermelhado quando o mouse está sobre o link */
+    text-decoration: none;  /* Garante que o sublinhado não apareça mesmo quando o mouse está sobre o link */
+}
+
+.menu ul li a:active {  /* Seleciona os links dentro dos itens da lista quando estão sendo clicados */
+    color: blue;  /* Muda a cor do texto para azul enquanto o link está sendo clicado */
+}
+
+.menu:hover {  /* Define os estilos para o menu quando o mouse está sobre ele */
+    background-color: #e0e0e0;  /* Muda a cor de fundo para um cinza mais escuro */
+    color: #333;  /* Muda a cor do texto para um tom mais escuro */
+    border: 1px solid #666;  /* Muda a borda para uma cor cinza mais escura */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do menu */
+}
+
+.menu ul li:hover {  /* Define os estilos para os itens da lista quando o mouse está sobre eles */
+    background-color: #d0d0d0;  /* Muda a cor de fundo para um cinza mais escuro */
+    color: #333;  /* Muda a cor do texto para um tom mais escuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do item da lista */
+}

@@ -1,0 +1,92 @@
+/* Define a fonte padrão para o corpo da página */
+body {
+    font-family: Arial, sans-serif;/* Especifica a família de fontes a ser usada (Arial e, se não estiver disponível, qualquer fonte sans-serif) */
+    margin: 20px;/* Adiciona uma margem de 20 pixels em todas as direções do corpo da página */
+    text-align: center;/* Centraliza o texto no corpo da página */
+}
+
+/* Define estilos para elementos img */
+img {
+    width: 200px;/* Define a largura da imagem como 200 pixels */
+    height: auto;/* Define a altura da imagem como automática, para manter a proporção */
+}
+
+/* Define estilos para o elemento com o id "details" */
+#details {
+    display: none;/* Esconde o elemento por padrão */
+    margin: 0.1% 30% 0.1% 30%;/* Define a margem do elemento como 0.1% em cima e embaixo, e 30% em ambos os lados */
+    padding: 10px;/* Adiciona um preenchimento de 10 pixels ao elemento */
+    border: 1px solid #ccc;/* Define a borda do elemento como uma linha sólida de 1 pixel de cor #ccc */
+    background-color: #f4f4f4;/* Define o fundo do elemento como uma cor #f4f4f4 */
+}
+
+/* Define estilos para elementos button */
+button {
+    padding: 10px 20px;/* Adiciona um preenchimento de 10 pixels em cima e embaixo, e 20 pixels em ambos os lados */
+    margin-top: 10px;/* Adiciona uma margem de 10 pixels em cima do botão */
+    font-size: 16px;/* Define o tamanho da fonte do botão como 16 pixels */
+}
+
+/* Define estilos para o elemento com o id "divReplace" */
+#divReplace {
+    width: 150px;/* Define a largura do elemento como 150 pixels */
+    height: 75px;/* Define a altura do elemento como 75 pixels */
+    background-color: #f4f4f4;/* Define o fundo do elemento como uma cor #f4f4f4 */ 
+    border: 1px solid #ccc;/* Define a borda do elemento como uma linha sólida de 1 pixel de cor #ccc */
+    line-height: 75px; /* Centraliza verticalmente o texto */
+    transition: background-color 0.3s; /* Transição suave */
+    margin: 0 auto;/* Centraliza o elemento horizontalmente */
+    padding: 10px;/* Adiciona um preenchimento de 10 pixels ao elemento */
+}
+
+/* Define os estilos para o menu */
+.menu {
+    background-color: #f4f4f4;  /* Define a cor de fundo do menu como cinza claro */
+    padding: 5px;  /* Reduz o preenchimento para 5 pixels em todas as direções */
+    border: 1px solid #ccc;  /* Define uma borda de 1 pixel sólida com cor cinza claro */
+    cursor: pointer;  /* Muda o cursor para uma mão ao passar o mouse sobre o menu */
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;  /* Adiciona uma transição suave para as propriedades */
+    width: 500px;  /* Define uma largura fixa para o menu */
+    margin: 0 auto;  /* Alinha o menu ao centro */
+    text-align: center;  /* Alinha o texto ao centro */
+}
+
+.menu ul {  /* Estilos para a lista dentro do menu */
+    list-style-type: none;  /* Remove os marcadores da lista */
+    padding: 0;  /* Remove o preenchimento da lista */
+    margin: 0;  /* Remove a margem da lista */
+}
+
+.menu ul li {  /* Estilos para os itens da lista */
+    display: inline-block;  /* Exibe os itens da lista em bloco em linha */
+    margin-right: 10px;  /* Adiciona um espaço entre os itens */
+    vertical-align: middle;  /* Alinha os itens verticalmente ao meio */
+    color: #333;
+}
+
+.menu ul li a {  /* Seleciona todos os links dentro dos itens da lista no menu */
+    color: #333;  /* Define a cor do texto dos links como um tom escuro de cinza */
+    text-decoration: none;  /* Remove o sublinhado padrão dos links */
+}
+
+.menu ul li a:hover {  /* Seleciona os links dentro dos itens da lista quando o mouse está sobre eles */
+    color: orangered;  /* Muda a cor do texto para um tom laranja avermelhado quando o mouse está sobre o link */
+    text-decoration: none;  /* Garante que o sublinhado não apareça mesmo quando o mouse está sobre o link */
+}
+
+.menu ul li a:active {  /* Seleciona os links dentro dos itens da lista quando estão sendo clicados */
+    color: blue;  /* Muda a cor do texto para azul enquanto o link está sendo clicado */
+}
+
+.menu:hover {  /* Define os estilos para o menu quando o mouse está sobre ele */
+    background-color: #e0e0e0;  /* Muda a cor de fundo para um cinza mais escuro */
+    color: #333;  /* Muda a cor do texto para um tom mais escuro */
+    border: 1px solid #666;  /* Muda a borda para uma cor cinza mais escura */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do menu */
+}
+
+.menu ul li:hover {  /* Define os estilos para os itens da lista quando o mouse está sobre eles */
+    background-color: #d0d0d0;  /* Muda a cor de fundo para um cinza mais escuro */
+    color: #333;  /* Muda a cor do texto para um tom mais escuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Adiciona uma sombra ao redor do item da lista */
+}
