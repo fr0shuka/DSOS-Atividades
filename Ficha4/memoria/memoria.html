@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Layout</title>
+
+<script type="text/javascript">
+
+</script> 
+
+<style type="text/css">
+
+/* styles.css */
+
+body {
+  height: 100vh;
+  display: flex;
+  background: lightgreen;
+}
+
+.memory-game {
+  width: 340px;
+  height: 340px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.memory-card {
+  width: calc(30% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.front-face
+{
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  display: none;
+}
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+
+}
+#bt_baralhar
+{
+ margin-top: 100px;
+}
+</style>
+</head>
+<body>
+
+<div id="bt_baralhar"><button onclick="Reset()"> Baralhar posições</button></div>
+<div>
+<section class="memory-game">
+  <div  class="memory-card">
+    <img class="front-face" src="img/react.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div    class="memory-card">
+    <img class="front-face" src="img/react.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div   class="memory-card">
+    <img class="front-face" src="img/angular.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/angular.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/ember.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/ember.svg" alt="Face da Carta">
+    <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+<div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+  <div class="memory-card">
+    <img class="front-face" src="img/vue.svg" alt="Face da Carta">
+   <img class="back-face" src="img/clubes.jpg" alt="Verso da Carta">
+  </div>
+
+
+</section>
+ </div>
+<script type="text/javascript">
+
+
+var firstpair="";
+var secondpair="";
+// Evento de clicar em cada carta
+function  add_eventos_cartas(){
+var div = document.querySelectorAll('.memory-card'),
+      result;
+    for (var i = 0; i < div.length; i++) {
+      result = div[i];
+	  
+      result.addEventListener('click', function() {
+       var imagem=this.getElementsByTagName("img");
+	   
+       //alert(imagem[0].id);
+       //alert(imagem[0].src);
+        imagem[0].style.display="block";
+        imagem[1].style.display="none";
+		
+		
+		if(firstpair=="")
+		{	
+			//primeiro elemento para testar o Par 
+			firstpair=imagem[0].id;
+			
+			
+			console.log(firstpair)
+		}else if(secondpair=="")
+		{
+			//Segundo elemento para testar o Par, agora podemos comparar se é igual  
+			secondpair=imagem[0].id;
+		
+			let img1=document.getElementById(firstpair);
+			let img2=document.getElementById(secondpair);
+			console.log(img1);
+			console.log(img2);
+			
+			if(img1.src==img2.src)   // testar este par
+				{
+					//limpar para o proximo
+					firstpair="";
+					secondpair="";
+				}
+			else {
+				//São diferentes
+				let imgfirst_1=document.getElementById(firstpair+"_");
+				let imgfirst=document.getElementById(firstpair);
+				
+				
+				
+				  setTimeout(function(){ 
+						imgfirst.style.display="none";
+						imgfirst_1.style.display="block";	
+					
+						imagem[0].style.display="none";
+						imagem[1].style.display="block";
+				
+					
+				 }, 500);
+				 
+					//limpar para o proximo
+					firstpair="";
+					secondpair="";
+				
+				
+			}
+				
+		}			
+
+    });
+  }
+}
+/*array clubes*/ 
+var clubes = ["porto.jpg", "porto.jpg", "benfica.jpg", "benfica.jpg", "sporting.jpg", "sporting.jpg","boavista.jpg","boavista.jpg","braga.jpg","braga.jpg","guimaraes.jpg","guimaraes.jpg"];
+
+//Baralhar
+var clubes_baralhados=shuffle(clubes);
+
+//array baralhado, atribuir a primeira posição do array á primeira posição da "tabela"  
+shuffle_SetPositions(clubes_baralhados);
+
+//Adicionar eventos
+add_eventos_cartas();
+
+
+// Função de atribuição das imagens 
+function shuffle_SetPositions(x) 
+{
+  var div_memorycard= document.querySelectorAll('.memory-card');
+    // Vai "buscar" os elementos img ao HTML
+   for (var i = 0; i < div_memorycard.length; i++) {
+    var img =div_memorycard[i].getElementsByTagName('img');
+    
+    //atribuir a imagem as posições
+    img[0].src="img/"+x[i];
+	  img[0].id=i;
+    //esconder 
+    img[0].style.display="none";
+    img[1].style.display="block";
+	  img[1].id=i+"_";
+  }
+
+}
+
+// Baralhar
+function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+
+    // While there are elements in the array
+    while (ctr > 0) {
+    // Pick a random index
+        index = Math.floor(Math.random() * ctr);
+    // Decrease ctr by 1
+        ctr--;
+    // And swap the last element with it
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+
+// Reset
+function Reset()
+{
+var firstpair="";
+var secondpair=""; 
+var clubes_reset=shuffle(clubes);
+shuffle_SetPositions(clubes_reset);
+
+
+}
+
+
+
+</script> 
+
+</body>
+</html>

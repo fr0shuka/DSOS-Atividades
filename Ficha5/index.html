@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Bootstrap e jQuery</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <!-- Linha 1: Nome -->
+        <div class="form-group row">
+            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+            </div>
+        </div>
+
+        <!-- Linha 2: Email e Telefone -->
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                </div>
+            </div>
+
+            <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone">
+                </div>
+            </div>
+        </div>
+
+        <!-- Linha 3: Data de Nascimento e Sexo -->
+        <div class="form-group row">
+            <label for="dataNascimento" class="col-sm-2 col-form-label">Data de Nascimento</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="dataNascimento">
+            </div>
+
+            <label class="col-sm-2 col-form-label">Sexo</label>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="Masculino">
+                    <label class="form-check-label" for="sexoMasculino">Masculino</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
+                    <label class="form-check-label" for="sexoFeminino">Feminino</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Linha 4: Endereço -->
+        <div class="form-group row">
+            <label for="endereco" class="col-sm-2 col-form-label">Endereço</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço">
+            </div>
+        </div>
+
+        <!-- Linha 5: Freguesia e Concelho -->
+        <div class="form-group row">
+            <label for="freguesia" class="col-sm-2 col-form-label">Freguesia</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="freguesia" placeholder="Digite sua freguesia">
+            </div>
+
+            <label for="concelho" class="col-sm-2 col-form-label">Concelho</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="concelho">
+                    <option value="" disabled selected>Escolha seu concelho</option>
+                    <option value="Concelho1">Concelho 1</option>
+                    <option value="Concelho2">Concelho 2</option>
+                    <option value="Concelho3">Concelho 3</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Botão de Envio -->
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <button id="enviar" type="button" class="btn btn-primary">Enviar</button>
+                <button id="enviar" type="button" class="btn btn-primary">Limpar </button>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h4>Dados Inseridos</h4>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-dados">
+                    <!-- Os dados inseridos serão adicionados aqui -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // a) Mudar o background ao focar e desfocar no campo Nome e Email
+            $("#nome, #email").focus(function() {
+                $(this).css("background-color", "lightgreen"); // Define o fundo azul claro ao focar
+            }).blur(function() {
+                $(this).css("background-color", ""); // Volta ao fundo original ao desfocar
+            });
+    
+            // b) Mouse hover no botão Enviar
+            $(".btn-primary").hover(
+                function() { $(this).css("background-color", "black"); }, // Cor ao passar o mouse
+                function() { $(this).css("background-color", ""); } // Cor original ao sair do mouse
+            );
+    
+            // c) Mudar a cor do texto no campo Sexo conforme a seleção
+            $("input[name='sexo']").change(function() {
+                if ($("#sexoMasculino").is(":checked")) {
+                    $("label[for='sexoMasculino']").css("color", "blue");
+                    $("label[for='sexoFeminino']").css("color", ""); // Reseta a cor do outro
+                } else if ($("#sexoFeminino").is(":checked")) {
+                    $("label[for='sexoFeminino']").css("color", "pink");
+                    $("label[for='sexoMasculino']").css("color", ""); // Reseta a cor do outro
+                }
+            });
+
+         /*auto*/
+         $("#nome").on("input", function() {
+        const nome = $(this).val();
+
+        // Verifica se o campo termina com "auto"
+        if (nome.endsWith("auto")) {
+            // Remove "auto" do final do campo Nome
+            $(this).val(nome.slice(0, -4));
+
+            // Preenche os campos restantes com dados predefinidos
+            $("#email").val("exemplo@exemplo.com");
+            $("#telefone").val("123456789");
+            $("#dataNascimento").val("2000-01-01");
+            $("#endereco").val("Rua Exemplo, 123");
+            $("#freguesia").val("Freguesia Exemplo");
+            $("#concelho").val("Concelho1");  // Seleciona a opção do concelho
+
+            alert("Campos preenchidos automaticamente.");
+        }
+    });
+
+    // inserir tabela
+     // inserir 
+     $('#enviar').click(function() {
+                var nome = $('#nome').val();
+                var email = $('#email').val();
+                var telefone = $('#telefone').val();
+
+                if (nome && email && telefone) { // Verifica se os campos estão preenchidos
+                    var novaLinha = `<tr><td>${nome}</td><td>${email}</td><td>${telefone}</td></tr>`;
+                    $('#tabela-dados').append(novaLinha);
+                    
+                    // Limpar os campos
+                    $('#nome').val('');
+                    $('#email').val('');
+                    $('#telefone').val('');
+                } else {
+                    alert("Por favor, preencha todos os campos!");
+                }
+            });
+
+            // Função para limpar os campos do formulário
+            $('#limpar').click(function() {
+                $('#nome').val('');
+                $('#email').val('');
+                $('#telefone').val('');
+            });
+       
+        });
+    </script>
+<script>
+    // o mesmo em Javascript do exercicio mudar a cor
+/*document.addEventListener("DOMContentLoaded", function() {
+    // a) Mudar o background ao focar e desfocar no campo Nome e Email
+    const nome = document.getElementById("nome");
+    const email = document.getElementById("email");
+
+    function addFocusBackground(event) {
+        event.target.style.backgroundColor = "lightgreen";
+    }
+
+    function removeFocusBackground(event) {
+        event.target.style.backgroundColor = "";
+    }
+
+    nome.addEventListener("focus", addFocusBackground);
+    nome.addEventListener("blur", removeFocusBackground);
+    email.addEventListener("focus", addFocusBackground);
+    email.addEventListener("blur", removeFocusBackground);
+
+    // b) Mouse hover no botão Enviar
+    const buttons = document.querySelectorAll(".btn-primary");
+
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", function() {
+            this.style.backgroundColor = "black";
+        });
+        button.addEventListener("mouseleave", function() {
+            this.style.backgroundColor = "";
+        });
+    });
+
+    // c) Mudar a cor do texto no campo Sexo conforme a seleção
+    const sexoMasculino = document.getElementById("sexoMasculino");
+    const sexoFeminino = document.getElementById("sexoFeminino");
+    const labelMasculino = document.querySelector("label[for='sexoMasculino']");
+    const labelFeminino = document.querySelector("label[for='sexoFeminino']");
+
+    function updateSexoLabelColor() {
+        if (sexoMasculino.checked) {
+            labelMasculino.style.color = "blue";
+            labelFeminino.style.color = "";
+        } else if (sexoFeminino.checked) {
+            labelFeminino.style.color = "pink";
+            labelMasculino.style.color = "";
+        }
+    }
+
+    sexoMasculino.addEventListener("change", updateSexoLabelColor);
+    sexoFeminino.addEventListener("change", updateSexoLabelColor);
+});*/
+
+
+
+</script>
+
+</body>
+</html>
